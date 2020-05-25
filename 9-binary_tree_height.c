@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include "binary_trees.h"
 #include <stdio.h>
+
 /**
  * tree_height - function tomesure BT height
  * @node: binary tree to be mesured
@@ -11,19 +12,17 @@ size_t tree_height(const binary_tree_t *node)
 {
 	size_t i = 0;
 	size_t j = 0;
-	
+
 	if (node->left)
 	{
-		i = binary_tree_height(node->left);
+		i = tree_height(node->left);
 	}
 	if (node->right)
 	{
-		j = binary_tree_height(node->right);
+		j = tree_height(node->right);
 	}
 	if (i > j)
-	{
 		return (i + 1);
-	}
 	return (j + 1);
 
 }
